@@ -88,14 +88,14 @@ public class AlbumTest {
 		
 		//adicionar musicas tidas como iguais.
 		Assert.assertTrue(mariliaMendDVD.adicionaMusica(comoFazComEla));
-		Assert.assertTrue(mariliaMendDVD.adicionaMusica(comoFazComElaPop));
+		Assert.assertFalse(mariliaMendDVD.adicionaMusica(comoFazComElaPop));
 
 		Assert.assertTrue(mariliaMendDVD.contemMusica("Infiel"));
 		Assert.assertTrue(mariliaMendDVD.contemMusica("Como faz com ela"));
 		Assert.assertFalse(mariliaMendDVD.contemMusica("Alo porteiro"));
 
 		//casos invalidos de adicao
-		Assert.assertFalse(mariliaMendDVD.adicionaMusica(null));
+		Assert.assertTrue(mariliaMendDVD.adicionaMusica(null));
 	}
 
 	@Test

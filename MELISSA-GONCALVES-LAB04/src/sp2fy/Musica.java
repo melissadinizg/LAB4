@@ -26,8 +26,6 @@ public class Musica {
 		this.genero = generoMusica;
 	}
 	
-	
-	
 	//	se o titulo da musica for vazia ou null
 	public void testeTitulo(String tituloMusica) throws Exception {
 		if (tituloMusica == null || tituloMusica.equals(""))
@@ -125,7 +123,5 @@ public class Musica {
 			return false;
 		return true;
 	}
-	
-
 	
 }

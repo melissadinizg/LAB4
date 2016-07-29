@@ -13,24 +13,24 @@ public class AlbumTest {
 
 	@Before
 	public void setUp() throws Exception {
-		mariliaMendDVD = new Album("Marilia Mendonca- Audio DVD", "Marilia Mendoca", 2015);
+		mariliaMendDVD = new Album("Marilia Mendonca", "Marilia Mendonca- Audio DVD", 2015);
 	}
-
+	
 	@Test
 	public void testConstrutorWithException() {
 
 		// Test Artista Vazio/Null
 		try {
 			Album album = new Album("  ", "AoVivo", 2012);
-			//Assert.fail("Lancamento de Exception com Artista vazio");
+			Assert.fail("Lancamento de Exception com Artista vazio");
 
 		} catch (Exception e) {
 			Assert.assertEquals("Artista do album nao pode ser nulo ou vazio.", e.getMessage());
 		}
-
+		
 		try {
 			Album album1 = new Album(null, "AoVivo", 2012);
-			//Assert.fail("Lancamento de Exception com Artista null");
+			Assert.fail("Lancamento de Exception com Artista null");
 
 		} catch (Exception e) {
 			Assert.assertEquals("Artista do album nao pode ser nulo ou vazio.", e.getMessage());
@@ -40,7 +40,7 @@ public class AlbumTest {
 		// Test Titulo Vazio/Null
 		try {
 			Album album = new Album("Sia", "", 2015);
-			//Assert.fail("Lancamento de Exception com Titulo Vazio");
+			Assert.fail("Lancamento de Exception com Titulo Vazio");
 
 		} catch (Exception e) {
 			Assert.assertEquals("Titulo do album nao pode ser nulo ou vazio.", e.getMessage());
@@ -48,7 +48,7 @@ public class AlbumTest {
 		}
 		try {
 			Album album2 = new Album("Marilia Mendonca", null, 2015);
-			//Assert.fail("Lancamento de Exception com Titulo null");
+			Assert.fail("Lancamento de Exception com Titulo null");
 
 		} catch (Exception e) {
 			Assert.assertEquals("Titulo do album nao pode ser nulo ou vazio.", e.getMessage());
@@ -74,10 +74,8 @@ public class AlbumTest {
 		}
 	}
 
-	
 	@Test
 	public void testAddFaixa() throws Exception {
-	
 		Musica infiel = new Musica("Infiel", 3, "Sertanejo");
 		Musica comoFazComEla = new Musica("Como faz com ela", 3, "Sertanejo");
 		Musica aloPorteiro = new Musica("Alo porteiro", 5, "Sertanejo");
@@ -85,17 +83,16 @@ public class AlbumTest {
 
 		//casos corretos de adicao
 		Assert.assertTrue(mariliaMendDVD.adicionaMusica(infiel));
-		
 		//adicionar musicas tidas como iguais.
 		Assert.assertTrue(mariliaMendDVD.adicionaMusica(comoFazComEla));
-		Assert.assertFalse(mariliaMendDVD.adicionaMusica(comoFazComElaPop));
+		Assert.assertTrue(mariliaMendDVD.adicionaMusica(comoFazComElaPop));
 
 		Assert.assertTrue(mariliaMendDVD.contemMusica("Infiel"));
 		Assert.assertTrue(mariliaMendDVD.contemMusica("Como faz com ela"));
 		Assert.assertFalse(mariliaMendDVD.contemMusica("Alo porteiro"));
 
 		//casos invalidos de adicao
-		Assert.assertTrue(mariliaMendDVD.adicionaMusica(null));
+		Assert.assertFalse(mariliaMendDVD.adicionaMusica(null));
 	}
 
 	@Test
@@ -107,6 +104,7 @@ public class AlbumTest {
 
 		mariliaMendDVD.removeMusica(1);
 		Assert.assertFalse(mariliaMendDVD.contemMusica("Alo porteiro"));
+
 	}
 
 	@Test
@@ -122,8 +120,8 @@ public class AlbumTest {
 		Musica oQueFalta = new Musica("O que falta em voce sou eu", 4, "Sertanejo");
 		mariliaMendDVD.adicionaMusica(oQueFalta);
 		Assert.assertEquals(oQueFalta, mariliaMendDVD.getMusica("O que falta em voce sou eu"));
-	}
-*/
+	}*/
+
 	@Test
 	public void testDuracaoTotal() throws Exception {
 		Musica folgado = new Musica("Folgado", 3, "Sertanejo");
@@ -140,7 +138,7 @@ public class AlbumTest {
 		Musica meuCupidoEhGari = new Musica("Meu cupido eh gari", 5, "Sertanejo");
 		mariliaMendDVD.adicionaMusica(meuCupidoEhGari);
 
-		Album mariliaMendDVD2 = new Album("Marilia Mendonca- Audio DVD", "Marilia Mendoca", 2015);
+		Album mariliaMendDVD2 = new Album("Marilia Mendonca", "Marilia Mendonca- Audio DVD", 2015);
 		Assert.assertTrue(mariliaMendDVD.equals(mariliaMendDVD2));
 	}
 	

@@ -35,7 +35,7 @@ public class Album {
 		}
 		return false;
 	}
-	
+
 	public boolean buscaMusica(Musica musica) {
 		boolean achou = false;
 
@@ -59,16 +59,14 @@ public class Album {
 	}
 
 	public void removeMusica(int i) {
-		
-			album.remove(i-1);
-		
+		album.remove(i - 1);
 
 	}
 
 	public int quantidadeFaixas() {
 		return album.size();
 	}
-	
+
 	public int getDuracaoTotal() {
 		int duracaoAlbum = 0;
 
@@ -96,7 +94,6 @@ public class Album {
 		}
 	}
 
-
 	/*
 	 * sao iguais se possuir mesmo nome e artista
 	 */
@@ -120,6 +117,16 @@ public class Album {
 		} else if (!titulo.equals(other.titulo))
 			return false;
 		return true;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Album [artista=" + artista + ", titulo=" + titulo + ", ano=" + ano + ", album=" + album + "]";
 	}
 
 }
